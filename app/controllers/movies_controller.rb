@@ -24,17 +24,17 @@ class MoviesController < ApplicationController
     # redirected the user back to the /movies url
 
     #create new movie model instance and fetching data from the text field of form 
-    #the values after m. must match the column values of movie model and the value in "" () after fetch comes from the form name attributes for the text fields:
+    #the values afterthe_ must match the column values of movie model and the value in "" () after fetch comes from the form name attributes for the text fields:
     
     m = Movie.new
-    m.title = params.fetch("the_title")
-    m.year = params.fetch("the_year")
-    m.duration = params.fetch("the_duration")
-    m.description = params.fetch("the_description")
-    m.image = params.fetch("the_image")
-    m.director_id = params.fetch("the_director_id")
+   the_title = params.fetch("the_title")
+   the_year = params.fetch("the_year")
+   the_duration = params.fetch("the_duration")
+   the_description = params.fetch("the_description")
+   the_image = params.fetch("the_image")
+   the_director_id = params.fetch("the_director_id")
 
-    m.save
+   the_save
 
     redirect_to("/movies")
   end
@@ -47,5 +47,28 @@ class MoviesController < ApplicationController
     the_movie.destroy
 
     redirect_to("/movies")
+  end
+
+  def update
+    # get the ID out of params 
+    m_id = params.fetch("the_id")
+
+    # look up the existing record
+    matching_records = Movie.where( :id => m_id)
+    the_movie = matching_records.at(0)
+
+    # Overwrite each column with the values from userrr inputs
+    the_movie.title = params.fetch("the_title")
+    the_year = params.fetch("the_year")
+    the_duration = params.fetch("the_duration")
+    the_description = params.fetch("the_description")
+    the_image = params.fetch("the_image")
+    the_director_id = params.fetch("the_director_id")
+
+    # save
+    the_movie.save
+
+    # redirect to the movie details page
+    redirect_to("/movies/#{the_movie.id}")
   end
 end
