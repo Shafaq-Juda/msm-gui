@@ -106,10 +106,10 @@
   </tr>
 
   <% the_id = @the_director.id %>
-
-  <% matching_directors = Director.where({ :director_id => the_id }) %>
+<% matching_movies = Movie.where ({ :director_id => the_id })%>
+ 
   
-  <% films = matching_directors.order({ :dob => :asc }) %>
+  <% films = matching_movies.order({ :dob => :asc }) %>
 
   <% films.each do |a_director| %>
   <tr>

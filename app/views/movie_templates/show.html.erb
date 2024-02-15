@@ -83,11 +83,11 @@
     
     <% matching_directors = Director.where({ :id => dir_id }) %>
     
-    <% the_director = matching_directors.at(0) %>
+   <% the_director = matching_directors.at(0) %>
     
-    <% if the_director.nil?%>
+     <% if the_director.nil?%>
       No director listed
-      <% else %>
+       <% else %>
      <%= the_director.name %>
     <% end %>
   </dd>
