@@ -34,7 +34,7 @@ class MoviesController < ApplicationController
    the_image = params.fetch("the_image")
    the_director_id = params.fetch("the_director_id")
 
-   the_save
+   m.save
 
     redirect_to("/movies")
   end
