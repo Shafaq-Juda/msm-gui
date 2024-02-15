@@ -12,10 +12,10 @@ class DirectorsController < ApplicationController
     #the values afterthe_ must match the column values of director model and the value in "" () after fetch comes from the form name attributes for the text fields:
     
     director = Director.new
-    the_name = params.fetch("the_name")
-    the_dob = params.fetch("the_dob")
-    the_bio = params.fetch("the_bio")
-    the_image = params.fetch("the_image")
+    director.name = params.fetch("the_name")
+    director.dob = params.fetch("the_dob")
+    director.bio = params.fetch("the_bio")
+    director.image = params.fetch("the_image")
 
     director.save
 
