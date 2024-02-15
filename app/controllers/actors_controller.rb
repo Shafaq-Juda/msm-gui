@@ -53,19 +53,19 @@ class ActorsController < ApplicationController
 
     # look up the existing record
     matching_records = Actor.where( :id => actor_id)
-    the_actor = matching_records.at(0)
+    @the_actor = matching_records.at(0)
 
     # Overwrite each column with the values from userrr inputs
-    the_actor.name = params.fetch("the_name")
-    the_dob = params.fetch("the_dob")
-    the_bio = params.fetch("the_bio")
-    the_image = params.fetch("the_image")
+    @the_actor.name = params.fetch("the_name")
+    @the_actor.dob = params.fetch("the_dob")
+    @the_actor.bio = params.fetch("the_bio")
+    @the_actor.image = params.fetch("the_image")
 
     # save
-    the_actor.save
+    @the_actor.save
 
     # redirect to the movie details page
-    redirect_to("/actors/#{the_actor.id}")
+    redirect_to("/actors/#{@the_actor.id}")
   end
 
 end
