@@ -16,11 +16,11 @@
   <div><label for ="name_field" > Name </label>
   <input id="name_field" type="text" name="the_name" value = "<%= @the_director.name%>"></div>
 
-  <div><label for ="dob_field" > Dob </label>
-  <input id="dob_field" type="text" name="the_dob" value = "<%= @the_director.dob%>"></div>
+  <div><label for="dob_field" > Dob </label>
+  <input id="dob_field" type="date" name="the_dob" value="<%= @the_director.dob%>"></div>
 
   <div><label for ="bio_field" >Bio</label>
-  <input id="bio_field" type="text" name="the_bio" value = "<%= @the_director.bio%>"/></div>
+  <input id="bio_field" type="text" name="the_bio" value="<%= @the_director.bio%>"/></div>
 
   <div><label for ="image _field" >Image</label>
   <input id="image _field" type="text" name="the_image" value = "<%= @the_director.image%>"></div>
@@ -111,22 +111,22 @@
   
   <% films = matching_movies.order({ :dob => :asc }) %>
 
-  <% films.each do |a_director| %>
+  <% films.each do |a_film| %>
   <tr>
     <td>
-      <%= a_director.id %>
+      <%= a_film.id %>
     </td>
 
     <td>
-      <img src="<%= a_director.image %>" style="width:250px;">
+      <img src="<%= a_film.image %>" style="width:250px;">
     </td>
 
     <td>
-      <%= a_director.title %>
+      <%= a_film.title %>
     </td>
 
     <td>
-      <%= a_director.dob %>
+      <%= a_film.year %>
     </td>
 
     <td>
@@ -134,7 +134,7 @@
     </td>
 
     <td>
-      <a href="/directors/<%= a_director.id %>">
+      <a href="/movies/<%= a_film.id %>">
         Show details
       </a>
     </td>
